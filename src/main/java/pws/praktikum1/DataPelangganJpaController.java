@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import pws.praktikum1.exceptions.IllegalOrphanException;
 import pws.praktikum1.exceptions.NonexistentEntityException;
 import pws.praktikum1.exceptions.PreexistingEntityException;
@@ -27,7 +28,7 @@ public class DataPelangganJpaController implements Serializable {
     public DataPelangganJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("pws_praktikum1_jar_0.0.1-SNAPSHOTPU");
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
